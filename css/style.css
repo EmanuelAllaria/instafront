@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.397);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 3/200px;
+    grid-template-rows: 1/200px;
+    grid-template-areas: 
+    "logo . buscador . img";
+}
+header .logo {
+    grid-area: logo;
+}
+header .buscador {
+    grid-area: buscador;
+    display: none;
+}
+header .buscador input {
+    width: 350px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+header img {
+    grid-area: img;
+}
+
+.foto_uni {
+    border-radius: 50%
+}
+
+/* sections */
+#history, #publicacion {
+    padding: 20px;
+}
+.container_history {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.container_history, .container_publi, .container_perfiles {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+}
+.container_perfiles {
+    border: none;
+}
+.container_publi {
+    padding: 0;
+}
+.container_history img {
+    height: 75px;
+}
+.logo_publi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+}
+.cuenta,.container_cuenta,.cuenta_1 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.cambiar span {
+    color: #1CA0F6;
+}
+.container_cuenta .cuenta {
+    padding: 20px 5px;
+}
+.container_cuenta .cuenta img {
+    height: 60px;
+}
+.container_cuenta .cuenta p {
+    margin-top: 20px;
+} 
+.container_cuenta .cuenta p span {
+    color: #808080;
+}
+.cuenta_1 .cuenta {
+    margin-top: 10px;
+}
+.sugerencias .cambiar {
+    margin-top: 10px;
+}
+
+.publi, .comentarios, .mgs, .iconos {
+    padding: 0 20px;
+}
+.publi img {
+    width: 100%;
+    margin: 20px 0 10px;
+}
+.iconos {
+    margin-bottom: 10px;
+}
+.iconos_left {
+    margin-left: 10px;
+}
+.comentarios {
+    margin-bottom: 10px;
+}
+.tds_coments {
+    margin-top: 10px;
+}
+img[src="img/heart.png"]::before {
+    content: "/";
+    position: absolute;
+    color: transparent;
+    background: red;
+    height: 20px;
+    width: 20px;
+}
+img[src="img/cora_rojo.png"],img[src="img/emoji-feliz.png"] {
+    height: 25px;
+}
+
+footer {
+    background: #222222;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+@media screen and (max-width: 550px) {
+    #perfiles_demas {
+        display: none;
+    }
+}
+@media screen and (min-width: 550px) {
+    header .buscador {
+        display: block;
+    }
+    header .buscador input {
+        width: 150px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .cinco, .seis, .siete {
+        display: none;
+    }
+}
+@media screen and (max-width: 960px) {
+    .seis, .siete {
+        display: none;
+    }
+}
+@media screen and (min-width: 960px) {
+    .container_history {
+        width: 58.5% !important;
+    }
+}
+@media screen and (min-width: 768px) {
+    header .buscador input {
+        width: 350px;
+    }
+    #container_cosas {
+        display: grid;
+        grid-template-columns: 60% 30%;
+        grid-template-rows: 80vh 30vh;
+        grid-template-areas: 
+        "publi perfiles"
+        "publi .";
+        grid-gap: 0 10%;
+    }
+    .perfiles_demas {
+        grid-area: perfiles;
+    }
+    .publicacion {
+        grid-area: publi;
+    }
+    #perfiles_demas {
+        margin-top: -115px;
+    }
+    .container_history {
+        width: 50%;
+    }
+    .container_triple {
+        padding: 20px;
+    }
+}

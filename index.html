@@ -1,114 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>InstaFront</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <header>
-        <div class="logo">
-            <h1>InstaFront</h1>
-        </div>
-        <div class="buscador">
-            <input type="text" placeholder="Buscador...">
-        </div>
-        <img class="foto_uni" src="img/fotoPerfil.jpg" alt="">
+      <div class="logo">
+        <h1>InstaFront</h1>
+      </div>
+      <div class="buscador">
+        <input id="search" type="text" placeholder="Buscar..." />
+      </div>
+      <div class="acciones">
+        <button id="themeToggle" aria-label="Cambiar tema">🌙</button>
+        <button id="newPostBtn" class="primary" aria-label="Nueva publicación">
+          + Publicar
+        </button>
+        <img class="foto_uni" src="img/fotoPerfil.jpg" alt="Perfil" />
+      </div>
     </header>
 
     <div class="container_triple">
-        <section id="history">
-            <div class="container_history">
-                <img class="foto_uni uno" src="img/fotoPerfil.jpg" alt="">
-                <img class="foto_uni dos" src="img/fotoPerfil.jpg" alt="">
-                <img class="foto_uni tres" src="img/fotoPerfil.jpg" alt="">
-                <img class="foto_uni cuatro" src="img/fotoPerfil.jpg" alt="">
-                <img class="foto_uni cinco" src="img/fotoPerfil.jpg" alt="">
-                <img class="foto_uni seis" src="img/fotoPerfil.jpg" alt="">
-                <img class="foto_uni siete" src="img/fotoPerfil.jpg" alt="">
-            </div>
+      <section id="history">
+        <div class="container_history">
+          <img class="foto_uni" src="img/fotoPerfil.jpg" alt="Historia 1" />
+          <img class="foto_uni" src="img/fotoPerfil.jpg" alt="Historia 2" />
+          <img class="foto_uni" src="img/fotoPerfil.jpg" alt="Historia 3" />
+          <img class="foto_uni" src="img/fotoPerfil.jpg" alt="Historia 4" />
+          <img class="foto_uni" src="img/fotoPerfil.jpg" alt="Historia 5" />
+          <img class="foto_uni" src="img/fotoPerfil.jpg" alt="Historia 6" />
+          <img class="foto_uni" src="img/fotoPerfil.jpg" alt="Historia 7" />
+        </div>
+      </section>
+
+      <div id="container_cosas">
+        <section id="publicacion">
+          <div class="container_publi" id="feed">
+            <!-- Tarjeta ejemplo inicial -->
+            <article class="card" data-post-id="post-1">
+              <div class="logo_publi">
+                <div class="cuenta">
+                  <img class="foto_uni" src="img/fotoPerfil.jpg" alt="Perfil" />
+                  <p>Abril González</p>
+                </div>
+                <button class="icon more" aria-label="Más">•••</button>
+              </div>
+              <div class="publi">
+                <img
+                  class="post-image"
+                  src="img/fotoPerfil.jpg"
+                  alt="Publicación"
+                />
+              </div>
+              <div class="iconos">
+                <button class="icon like" aria-label="Me gusta">
+                  <img class="corazon" src="img/heart.png" alt="Me gusta" />
+                </button>
+                <button class="icon toggle-comments" aria-label="Comentarios">
+                  <img
+                    class="iconos_left"
+                    src="img/comment.png"
+                    alt="Comentarios"
+                  />
+                </button>
+                <button class="icon share" aria-label="Compartir">
+                  <img
+                    class="iconos_left"
+                    src="img/paper.png"
+                    alt="Compartir"
+                  />
+                </button>
+                <button class="icon show-emoji" aria-label="Emojis">
+                  <img
+                    class="iconos_left emoji"
+                    src="img/smile.png"
+                    alt="Emoji"
+                  />
+                </button>
+              </div>
+              <div class="mgs">
+                <p class="likes-text">A 0 personas les gusta esto</p>
+              </div>
+              <div class="comentarios">
+                <p class="tds_coments">Ver los 0 comentarios</p>
+                <div class="comentarios-list"></div>
+                <form class="comentario-form">
+                  <div class="emoji-picker" hidden>
+                    <button type="button" class="emoji-btn">🙂</button>
+                    <button type="button" class="emoji-btn">😃</button>
+                    <button type="button" class="emoji-btn">❤️</button>
+                    <button type="button" class="emoji-btn">🔥</button>
+                    <button type="button" class="emoji-btn">🎉</button>
+                  </div>
+                  <input
+                    type="text"
+                    name="comentario"
+                    placeholder="Escribe un comentario..."
+                    autocomplete="off"
+                  />
+                  <button type="submit" class="primary">Publicar</button>
+                </form>
+              </div>
+            </article>
+          </div>
         </section>
 
-        <div id="container_cosas">
-            <section id="publicacion">
-                <div class="container_publi">
-                    <div class="publicacion">
-                        <div class="logo_publi">
-                            <div class="cuenta">
-                                <img class="foto_uni" src="img/fotoPerfil.jpg" alt="">
-                                <p>Abril González</p>
-                            </div>
-                            <div class="puntitos">
-                                <span>•••</span>
-                            </div>
-                        </div>
-                        <div class="publi">
-                            <img src="img/fotoPerfil.jpg" alt="">
-                        </div>
-                        <div class="iconos">
-                            <img class="corazon" src="img/heart.png" alt="">
-                            <img class="iconos_left" src="img/comment.png" alt="">
-                            <img class="iconos_left" src="img/paper.png" alt="">
-                            <img class="iconos_left emoji" src="img/smile.png" alt="">
-                        </div>
-                        <div class="mgs">
-                            <p>Les gusta a lulipringless y otras personas</p>
-                        </div>
-                        <div class="comentarios">
-                            <p class="tds_coments">Ver los 3,672 comentarios</p> <br>
-                            <p>Gabriela Munich Hola! que placer verte en frontend!!</p> <br>
-                            <p>Jonathan Gonzalez Te estabamos esperando!! Vamooh!</p>
-                        </div>
-                    </div>
+        <main id="perfiles_demas">
+          <div class="container_perfiles">
+            <div class="logo">
+              <div class="container_cuenta">
+                <div class="cuenta">
+                  <img class="foto_uni" src="img/fotoPerfil.jpg" alt="" />
+                  <p>
+                    Abril González <br />
+                    <span>A B R I L 👻</span>
+                  </p>
                 </div>
-            </section>
+                <div class="cambiar">
+                  <span>Cambiar</span>
+                </div>
+              </div>
+              <p>Sugerencias para ti</p>
+              <div class="sugerencias">
+                <div class="cuenta_1">
+                  <div class="cuenta">
+                    <img class="foto_uni" src="img/fotoPerfil.jpg" alt="" />
+                    <p>Abril González <br /></p>
+                  </div>
 
-            <main id="perfiles_demas">
-                <div class="container_perfiles">
-                    <div class="logo">
-                        <div class="container_cuenta">
-                            <div class="cuenta">
-                                <img class="foto_uni" src="img/fotoPerfil.jpg" alt="">
-                                <p>Abril González <br>
-                                <span>A B R I L 👻</span></p>
-                            </div>
-                            <div class="cambiar">
-                                <span>Cambiar</span>
-                            </div>
-                        </div>
-                        <p>Sugerencias para ti</p>
-                        <div class="sugerencias">
-                            <div class="cuenta_1">
-                                <div class="cuenta">
-                                    <img class="foto_uni" src="img/fotoPerfil.jpg" alt="">
-                                    <p>Abril González <br>
-                                </div>
-                                <div class="cambiar">
-                                    <span>Cambiar</span>
-                                </div>
-                            </div>
-                            <div class="cuenta_1">
-                                <div class="cuenta">
-                                    <img class="foto_uni" src="img/fotoPerfil.jpg" alt="">
-                                    <p>Abril González <br>
-                                </div>
-                                <div class="cambiar">
-                                    <span>Cambiar</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  <div class="cambiar">
+                    <span>Cambiar</span>
+                  </div>
                 </div>
-            </main>
-        </div>
+                <div class="cuenta_1">
+                  <div class="cuenta">
+                    <img class="foto_uni" src="img/fotoPerfil.jpg" alt="" />
+                    <p>Abril González <br /></p>
+                  </div>
+
+                  <div class="cambiar">
+                    <span>Cambiar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
 
     <footer>
-        <p>Todos los derechos reservados a Emanuel Allaria</p>
+      <p>Todos los derechos reservados a Emanuel Allaria</p>
     </footer>
 
+    <!-- Modal nueva publicación -->
+    <div id="newPostModal" class="modal" hidden>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Nueva publicación</h2>
+          <button id="closeModal" class="icon">✕</button>
+        </div>
+        <form id="newPostForm">
+          <label class="file-input">
+            <span>Selecciona una imagen</span>
+            <input type="file" id="postImage" accept="image/*" required />
+          </label>
+          <textarea
+            id="postCaption"
+            placeholder="Escribe un pie de foto..."
+          ></textarea>
+          <div class="modal-actions">
+            <button type="submit" class="primary">Publicar</button>
+            <button type="button" id="cancelModal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script src="js/js.js"></script>
-</body>
+  </body>
 </html>

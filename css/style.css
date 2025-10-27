@@ -1,191 +1,314 @@
+/* Reset y variables */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+:root {
+  --bg: #fafafa;
+  --text: #111;
+  --muted: #6b7280;
+  --card: #fff;
+  --border: #e5e7eb;
+  --primary: #0ea5e9;
+}
+body.dark {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --card: #0b1220;
+  --border: #1f2937;
+  --primary: #38bdf8;
 }
 
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+.foto_uni {
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+}
+
+/* Header */
 header {
-    padding: 10px;
-    border-bottom: 1px solid #000;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.397);
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    grid-template-columns: 3/200px;
-    grid-template-rows: 1/200px;
-    grid-template-areas: 
-    "logo . buscador . img";
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 20px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
 }
-header .logo {
-    grid-area: logo;
-}
-header .buscador {
-    grid-area: buscador;
-    display: none;
+header .logo h1 {
+  font-size: 20px;
+  letter-spacing: 0.5px;
 }
 header .buscador input {
-    width: 350px;
-    height: 30px;
-    padding: 10px;
-    border-radius: 5px;
+  width: 320px;
+  max-width: 50vw;
+  height: 36px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
 }
-header img {
-    grid-area: img;
+header .acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+button {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button.primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+button.icon {
+  padding: 6px 10px;
+}
+button:hover {
+  filter: brightness(0.98);
 }
 
-.foto_uni {
-    border-radius: 50%
+/* Layout */
+#history,
+#publicacion {
+  padding: 20px;
+}
+.container_triple {
+  max-width: 980px;
+  margin: 0 auto;
 }
 
-/* sections */
-#history, #publicacion {
-    padding: 20px;
-}
+/* Historias */
 .container_history {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.container_history, .container_publi, .container_perfiles {
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 10px;
-}
-.container_perfiles {
-    border: none;
-}
-.container_publi {
-    padding: 0;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
 }
 .container_history img {
-    height: 75px;
+  height: 70px;
+  width: 70px;
+}
+
+/* Feed */
+.container_publi {
+  padding: 0;
+  border-radius: 12px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 .logo_publi {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
 }
-.cuenta,.container_cuenta,.cuenta_1 {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.cuenta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.cambiar span {
-    color: #1CA0F6;
-}
-.container_cuenta .cuenta {
-    padding: 20px 5px;
-}
-.container_cuenta .cuenta img {
-    height: 60px;
-}
-.container_cuenta .cuenta p {
-    margin-top: 20px;
-} 
-.container_cuenta .cuenta p span {
-    color: #808080;
-}
-.cuenta_1 .cuenta {
-    margin-top: 10px;
-}
-.sugerencias .cambiar {
-    margin-top: 10px;
-}
-
-.publi, .comentarios, .mgs, .iconos {
-    padding: 0 20px;
+.publi {
+  padding: 0;
 }
 .publi img {
-    width: 100%;
-    margin: 20px 0 10px;
+  width: 100%;
+  display: block;
+  max-height: 60vh;
+  object-fit: cover;
 }
 .iconos {
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
 }
-.iconos_left {
-    margin-left: 10px;
+.iconos .icon {
+  background: transparent;
+  border: none;
+}
+.iconos .icon img {
+  height: 24px;
+  width: 24px;
+}
+.mgs {
+  padding: 0 16px 8px;
+  color: var(--muted);
+}
+.likes-text {
+  color: var(--muted);
 }
 .comentarios {
-    margin-bottom: 10px;
+  padding: 0 16px 16px;
 }
 .tds_coments {
-    margin-top: 10px;
+  margin: 8px 0;
+  color: var(--muted);
 }
-img[src="img/heart.png"]::before {
-    content: "/";
-    position: absolute;
-    color: transparent;
-    background: red;
-    height: 20px;
-    width: 20px;
+.comentarios-list {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
 }
-img[src="img/cora_rojo.png"],img[src="img/emoji-feliz.png"] {
-    height: 25px;
+.comentario-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.comentario-form input {
+  flex: 1;
+  height: 36px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+}
+.emoji-picker {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.emoji-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 6px;
+  padding: 4px 6px;
+  cursor: pointer;
 }
 
+/* Animación de like */
+.corazon {
+  transition: transform 120ms ease;
+}
+.liked {
+  transform: scale(1.2);
+}
+
+/* Sidebar sugerencias (mantener estructura existente) */
+.container_perfiles {
+  border: none;
+}
+.cambiar span {
+  color: var(--primary);
+}
+
+/* Footer */
 footer {
-    background: #222222;
-    padding: 10px;
-    text-align: center;
-    color: #fff;
+  background: var(--card);
+  padding: 12px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
 }
 
-@media screen and (max-width: 550px) {
-    #perfiles_demas {
-        display: none;
-    }
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: grid;
+  place-items: center;
 }
-@media screen and (min-width: 550px) {
-    header .buscador {
-        display: block;
-    }
-    header .buscador input {
-        width: 150px;
-    }
+.modal[hidden] {
+  display: none !important;
 }
-@media screen and (max-width: 768px) {
-    .cinco, .seis, .siete {
-        display: none;
-    }
+.modal-content {
+  width: min(92vw, 520px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
 }
-@media screen and (max-width: 960px) {
-    .seis, .siete {
-        display: none;
-    }
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
-@media screen and (min-width: 960px) {
-    .container_history {
-        width: 58.5% !important;
-    }
+#newPostForm {
+  display: grid;
+  gap: 12px;
+}
+.file-input {
+  display: grid;
+  gap: 6px;
+}
+.file-input input {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+#postCaption {
+  min-height: 80px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Responsive */
+@media screen and (max-width: 640px) {
+  header {
+    grid-template-columns: 1fr auto;
+  }
+  header .buscador {
+    display: none;
+  }
 }
 @media screen and (min-width: 768px) {
-    header .buscador input {
-        width: 350px;
-    }
-    #container_cosas {
-        display: grid;
-        grid-template-columns: 60% 30%;
-        grid-template-rows: 80vh 30vh;
-        grid-template-areas: 
-        "publi perfiles"
-        "publi .";
-        grid-gap: 0 10%;
-    }
-    .perfiles_demas {
-        grid-area: perfiles;
-    }
-    .publicacion {
-        grid-area: publi;
-    }
-    #perfiles_demas {
-        margin-top: -115px;
-    }
-    .container_history {
-        width: 50%;
-    }
-    .container_triple {
-        padding: 20px;
-    }
+  header .buscador {
+    display: block;
+  }
+  #container_cosas {
+    display: grid;
+    grid-template-columns: 60% 32%;
+    grid-gap: 0 8%;
+  }
+  .perfiles_demas {
+    grid-area: perfiles;
+  }
+  .publicacion {
+    grid-area: publi;
+  }
+  .container_triple {
+    padding: 20px;
+  }
 }
